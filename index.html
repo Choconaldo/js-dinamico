@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Atividade 01</title>
+	</head>
+	<body>
+		<h1>Atividade 01</h1>
+		<h2>Preencha o formulário abaixo:</h2>
+		<form>
+			<label for="nome">Nome: </label>
+			<input type="text" name="nome" id="nome" />
+			<br /><br />
+			<label for="nome">Idade: </label>
+			<input type="number" name="idade" id="idade" />
+			<br /><br />
+			<label for="nome">E-mail: </label>
+			<input type="email" name="email" id="email" />
+			<br /><br />
+			<p>Linguagem de programação favorita:</p>
+			<input type="radio" name="favorita" id="javascript" />
+			<label for="nome">Javascript</label><br />
+			<input type="radio" name="favorita" id="typescript" />
+			<label for="typescript">TypeScript</label><br />
+			<input type="radio" name="favorita" id="python" />
+			<label for="python">Python</label><br />
+			<input type="radio" name="favorita" id="java" />
+			<label for="java">Java</label>
+		</form>
+		<h2>Resultado:</h2>
+		<p id="resultado">
+			Olá, meu nome é FULANO, tenho XX anos. Minha linguagem de
+			programação favorita é LALALA e meu e-mail de contato é
+			fulano@teste.com.
+		</p>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>
