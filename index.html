@@ -11,30 +11,36 @@
 		<h2>Preencha o formulário abaixo:</h2>
 		<form>
 			<label for="nome">Nome: </label>
-			<input type="text" name="nome" id="nome" />
+			<input type="text" name="nome" id="nome" autocomplete="off" />
 			<br /><br />
-			<label for="nome">Idade: </label>
-			<input type="number" name="idade" id="idade" />
+			<label for="idade">Idade: </label>
+			<input type="text" name="idade" id="idade" autocomplete="off" />
 			<br /><br />
-			<label for="nome">E-mail: </label>
-			<input type="email" name="email" id="email" />
+			<label for="email">E-mail: </label>
+			<input type="text" name="email" id="email" autocomplete="off" />
 			<br /><br />
 			<p>Linguagem de programação favorita:</p>
-			<input type="radio" name="favorita" id="javascript" />
+			<input
+				type="radio"
+				name="favorita"
+				id="javascript"
+				value="Javascript"
+			/>
 			<label for="nome">Javascript</label><br />
-			<input type="radio" name="favorita" id="typescript" />
+			<input
+				type="radio"
+				name="favorita"
+				id="typescript"
+				value="TypeScript"
+			/>
 			<label for="typescript">TypeScript</label><br />
-			<input type="radio" name="favorita" id="python" />
+			<input type="radio" name="favorita" id="python" value="Python" />
 			<label for="python">Python</label><br />
-			<input type="radio" name="favorita" id="java" />
+			<input type="radio" name="favorita" id="java" value="Java" />
 			<label for="java">Java</label>
 		</form>
 		<h2>Resultado:</h2>
-		<p id="resultado">
-			Olá, meu nome é FULANO, tenho XX anos. Minha linguagem de
-			programação favorita é LALALA e meu e-mail de contato é
-			fulano@teste.com.
-		</p>
+		<p id="resultado"></p>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>
