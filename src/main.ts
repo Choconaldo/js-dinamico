@@ -2,33 +2,47 @@
 
 const taskInputEl = document.getElementById("taskInput") as HTMLInputElement;
 const taskListEl = document.getElementById("taskList") as HTMLDivElement;
+const addButtonEl = document.getElementById("addButton") as HTMLButtonElement;
 
 // Task list array
 
-const taskList: string[] = [];
-//localStorage.setItem("@TASK", JSON.stringify(taskList));
-// Add Task Function
+let taskList: string[] = getTasks();
 
 renderTaskList();
 
 function addTask() {
 	const newtask = taskInputEl.value;
 	taskList.push(newtask);
-	//rederTaskList()
 	localStorage.setItem("@TASK", JSON.stringify(taskList));
+	taskInputEl.value = "";
 	renderTaskList();
 }
 
 // Add task button
 
-taskListEl.addEventListener("click", addTask);
+addButtonEl.addEventListener("click", addTask);
+
+// Get tasks function
+
+function getTasks() {
+	const taskListInMemoryString = localStorage.getItem("@TASK");
+	if (taskListInMemoryString) {
+		const taskListInMemoryArray = JSON.parse(taskListInMemoryString);
+		return taskListInMemoryArray;
+	} else {
+		return [];
+	}
+}
 
 // Render task list function
 
 function renderTaskList() {
-	let taskList = localStorage.getItem("@TASK");
-	if (taskList) {
-		taskList = JSON.parse(taskList);
-		console.log(taskList);
+	let taskToBeRendered = "";
+	let taskListInMemoryArray = getTasks();
+	if (taskListInMemoryArray) {
+		taskListInMemoryArray.forEach((task: string) => {
+			taskToBeRendered += `<li>${task}</li>`;
+			taskListEl.innerHTML = taskToBeRendered;
+		});
 	}
 }
