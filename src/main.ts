@@ -55,15 +55,20 @@ function renderTaskList() {
 function renderRemoveTask() {
 	if (taskList.length) {
 		let taskNumber = "";
-		taskList.forEach((task: string, index: number) => {
+		let tasks = taskList.length;
+		let index = 0;
+		while (tasks > 0) {
 			taskNumber += `<option value="${index}">${index + 1}</option>`;
-		});
-		taskNumber = `<h2>Exclusão de tarefas:</h2><span>Excluir a tarefa nº</span>
+			tasks -= 1;
+			index += 1;
+		}
+		taskNumber = `
+		<h2>Exclusão de tarefas:</h2><span>Excluir a tarefa nº</span>
         <select id="select">
           ${taskNumber}
         </select>
-        <button id="removeButton">Excluir</button>`;
-
+        <button id="removeButton">Excluir</button>
+		`;
 		removeTaskEl.innerHTML = taskNumber;
 		const selectEl = document.getElementById("select") as HTMLSelectElement;
 		document
