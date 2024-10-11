@@ -39,29 +39,14 @@ function getTasks() {
 
 function renderTaskList() {
 	let taskToBeRendered = "";
+	let taskNumber = "";
 	let taskListInMemoryArray = getTasks();
 	if (taskListInMemoryArray.length) {
 		taskListInMemoryArray.forEach((task: string, index: number) => {
 			taskToBeRendered += `<li>Tarefa nº ${index + 1}: ${task}</li>`;
 			taskListEl.innerHTML = taskToBeRendered;
-		});
-	} else {
-		taskListEl.innerHTML = "";
-	}
-}
-
-// Render remove task function
-
-function renderRemoveTask() {
-	if (taskList.length) {
-		let taskNumber = "";
-		let tasks = taskList.length;
-		let index = 0;
-		while (tasks > 0) {
 			taskNumber += `<option value="${index}">${index + 1}</option>`;
-			tasks -= 1;
-			index += 1;
-		}
+		});
 		taskNumber = `
 		<h2>Exclusão de tarefas:</h2><span>Excluir a tarefa nº</span>
         <select id="select">
@@ -77,6 +62,7 @@ function renderRemoveTask() {
 				removeTask(Number(selectEl.value));
 			});
 	} else {
+		taskListEl.innerHTML = "";
 		removeTaskEl.innerHTML = "";
 	}
 }
@@ -95,7 +81,6 @@ function removeTask(taskIndex: number) {
 function initApp() {
 	taskList = getTasks();
 	renderTaskList();
-	renderRemoveTask();
 }
 
 initApp();
