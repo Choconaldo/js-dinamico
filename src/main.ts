@@ -10,8 +10,9 @@ const estadoEl = document.getElementById("estado") as HTMLInputElement;
 if (cepEl) {
 	cepEl.onblur = function cepValidation() {
 		const cepValue = cepEl.value;
-		try {
-			if (cepValue.length === 8 && Number(cepValue)) {
+
+		if (cepValue.length === 8 && Number(cepValue)) {
+			try {
 				const cepReturn = fetch(
 					`https://viacep.com.br/ws/${cepEl.value}/json/`
 				);
@@ -22,11 +23,11 @@ if (cepEl) {
 						cidadeEl.value = processedResponse.localidade;
 						estadoEl.value = processedResponse.estado;
 					});
-			} else {
-				alert("Formato do CEP digitado inválido");
+			} catch (error) {
+				console.log(error);
 			}
-		} catch (error) {
-			console.log(error);
+		} else {
+			alert("Formato do CEP digitado inválido");
 		}
 	};
 }
